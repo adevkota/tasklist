@@ -2,3 +2,31 @@
 .mat-checkbox-layout {
     margin-bottom: 0.1rem;
 }
+
+div.col{
+    padding-left:25px !important;
+    padding-right:0 !important;
+
+    &:last-child{
+        padding-right:25px;
+    }
+}
+
+.title {
+    &:nth-child(1) {
+        .wrapper{
+            background-color:  #8e6e95 !important;
+
+        }
+    }
+    &:nth-child(2) {
+        .wrapper{
+            background-color:  #39a59c !important;
+
+        }
+    }
+}
+
+body{
+    background-color: #ECEEEE;
+}

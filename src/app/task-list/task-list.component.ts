@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { MessageService } from "../shared/message/message.service";
 
 @Component({
@@ -7,24 +7,38 @@ import { MessageService } from "../shared/message/message.service";
   styleUrls: ['./task-list.component.scss']
 })
 export class TaskListComponent implements OnInit {
-  public taskList;
+
   public searchText;
-  constructor(private messageService: MessageService) { 
-    this.taskList = [];
-    this.messageService.getMessage().subscribe(this.handleEvent.bind(this));    
-  }
+  @Input() task;
+  constructor(private messageService: MessageService) {
+    this.messageService.getMessage().subscribe((message) => {
+      //if currindex = tasklist index, remove info from the tasks
+      if(this.task.index == message.data.listIndex) {
+        this.task.tasks.splice(message.data.index)
+      } else if(this.task.index == message.data.listIndex -1 && message.text ==="prev") {
+        this.task.tasks.push(message.data.info)
+      }
+      else if(this.task.index == message.data.listIndex +1 && message.text ==="next") {
+        this.task.tasks.push(message.data.info)
+      }
+      //if tasklist index = currindex + 1 and event is next, add it
+      //if tasklis index = curr index -1 and event is prev, add
+      console.log(message.data);
+    }) 
+    }
+
+    /*
+    server side rendering, pwa, async handling (observables and stream), redux saga,
+    functional reactive, graphql, performance amd bug tracking, cross browser,
+    internals of frameworks, transpilers, websockets
+    */
 
   ngOnInit() {
   }
 
-  private handleEvent({text, data}) {
-    if(text === "search" ) {
-      this.searchText = data;
-    } else if (text === "newTask") {
-      this.addTask(data);
-    }
-  }
-  private addTask(task) {
-    this.taskList = this.taskList.concat([task || `default task ${this.taskList.length + 1}`]);
+  public addCard() {
+    let result = window.prompt("please enter info");
+    this.task.tasks.push(result);
+    console.log(this.task);
   }
 }

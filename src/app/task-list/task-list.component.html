@@ -1,9 +1,7 @@
 
-<div class="row" *ngFor="let task of taskList | search: searchText">
-  <div class="col" >
-    <app-task
-      [task]="task">
-    </app-task>
+<title-card [title]="task.title">
     
-  </div>
-</div>
+</title-card>
+<info-card *ngFor="let t of task.tasks; index as i" [info]="t" [index]="i" [listIndex]="task.index"></info-card>
+
+<button (click) = "addCard()">Add </button>

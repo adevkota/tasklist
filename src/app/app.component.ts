@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MessageService} from './shared/message/message.service';
 
 @Component({
@@ -6,15 +6,44 @@ import { MessageService} from './shared/message/message.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'Tasklist';
 
-  constructor(private messageService: MessageService) { }
+  public taskContainer;
 
-  public addTask(newTask)  {
-    this.messageService.sendMessage("newTask", newTask);
+  constructor(private messageService: MessageService) { 
+   
   }
-  public search(text)  {
-    this.messageService.sendMessage("search", text);
+
+  public ngOnInit() {
+    this.taskContainer = {
+      one: {
+        title: "one",
+        index:0,
+        tasks:["one", "two"]
+      },
+      two: {
+        title: "two",
+
+        index:1,
+        tasks:["one", "two"]
+      },
+      three: {
+        index:2,
+        title: "three",
+        tasks:["one", "two"]
+      },
+      four: {
+        index:3,
+        title: "four",
+        tasks:["one", "two"]
+      }
+    }
   }
+  // public addTask(newTask)  {
+  //   this.messageService.sendMessage("newTask", newTask);
+  // }
+  // public search(text)  {
+  //   this.messageService.sendMessage("search", text);
+  // }
 }

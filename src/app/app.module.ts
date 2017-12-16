@@ -12,6 +12,8 @@ import { TaskListComponent } from './task-list/task-list.component';
 import { TaskComponent } from './task/task.component';
 import { SearchPipe } from './shared/search/search.pipe';
 import { TextColorDirective } from './shared/text-color/text-color.directive';
+import { InfoCardComponent } from './info-card/info-card.component';
+import { TitleCardComponent } from './title-card/title-card.component';
 
 
 @NgModule({
@@ -21,6 +23,8 @@ import { TextColorDirective } from './shared/text-color/text-color.directive';
     TaskComponent,
     SearchPipe,
     TextColorDirective,
+    InfoCardComponent,
+    TitleCardComponent,
   ],
   imports: [
     BrowserModule,

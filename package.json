@@ -1,14 +1,16 @@
 {
-  "name": "triple-byte",
+  "name": "tasklist",
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "ng build --prod --base-href /tasklist/",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "private": true,
   "dependencies": {
@@ -25,6 +27,7 @@
     "@angular/router": "^5.0.0",
     "bootstrap": "4.0.0-alpha.6",
     "core-js": "^2.4.1",
+    "gh-pages": "1.1.0",
     "rxjs": "^5.5.2",
     "zone.js": "^0.8.14"
   },

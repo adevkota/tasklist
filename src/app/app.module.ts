@@ -7,16 +7,18 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 
 
 import { AppComponent } from './app.component';
-import { MessageService } from './shared/message.service';
+import { MessageService } from './shared/message/message.service';
 import { TaskListComponent } from './task-list/task-list.component';
 import { TaskComponent } from './task/task.component';
+import { SearchPipe } from './shared/search/search.pipe';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     TaskListComponent,
-    TaskComponent
+    TaskComponent,
+    SearchPipe,
   ],
   imports: [
     BrowserModule,

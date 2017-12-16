@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { MessageService} from './shared/message.service';
+import { MessageService} from './shared/message/message.service';
 
 @Component({
   selector: 'app-root',
@@ -13,5 +13,8 @@ export class AppComponent {
 
   public addTask(newTask)  {
     this.messageService.sendMessage("newTask", newTask);
+  }
+  public search(text)  {
+    this.messageService.sendMessage("search", text);
   }
 }

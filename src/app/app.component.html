@@ -10,11 +10,14 @@
     </div>
     
     <div class="row">
-      <div class="col-9">
-        <input [(ngModel)]="newTask"/>
+      <div class="col-7">
+        <input [(ngModel)]="inputText"/>
+      </div>
+      <div class="col-2">
+        <button (click)="addTask(inputText)">Add</button>
       </div>
       <div class="col-3">
-        <button (click)="addTask(newTask)">Add</button>
+        <button (click)="search(inputText)">Search</button>
       </div>
     </div>
 

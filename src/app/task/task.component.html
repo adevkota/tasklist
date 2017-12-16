@@ -1,5 +1,10 @@
-<p>
+<div class="list-item">
   <mat-checkbox [(ngModel)]="checked" [labelPosition]="end">
-    <span [ngClass]="{'done': checked}">{{task}}</span>
   </mat-checkbox>
-</p>
+  <input 
+    matInput 
+    [ngClass]="{'done': checked}" 
+    aria-label="task-input"
+    [attr.disabled]="checked?'':null"
+    [(ngModel)]="task"/>
+</div>

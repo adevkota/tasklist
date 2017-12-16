@@ -1,5 +1,5 @@
 
-<div class="row" *ngFor="let task of taskList">
+<div class="row" *ngFor="let task of taskList | search: searchText">
   <div class="col" >
     <app-task
       [task]="task">

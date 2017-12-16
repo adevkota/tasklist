@@ -7,7 +7,7 @@ import { MessageService} from './shared/message/message.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'app';
+  title = 'Tasklist';
 
   constructor(private messageService: MessageService) { }
 

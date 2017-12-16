@@ -11,6 +11,7 @@ import { MessageService } from './shared/message/message.service';
 import { TaskListComponent } from './task-list/task-list.component';
 import { TaskComponent } from './task/task.component';
 import { SearchPipe } from './shared/search/search.pipe';
+import { TextColorDirective } from './shared/text-color/text-color.directive';
 
 
 @NgModule({
@@ -19,6 +20,7 @@ import { SearchPipe } from './shared/search/search.pipe';
     TaskListComponent,
     TaskComponent,
     SearchPipe,
+    TextColorDirective,
   ],
   imports: [
     BrowserModule,

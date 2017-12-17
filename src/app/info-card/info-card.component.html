@@ -2,6 +2,6 @@
 <div class="info">
   <span *ngIf="listIndex>0" (click)="moveToPrev()" class="prev"><</span>
     {{info}}
-  <span (click)="moveToNext()" class="next">></span>
+  <span *ngIf="listIndex<3"(click)="moveToNext()" class="next">></span>
 </div>
 

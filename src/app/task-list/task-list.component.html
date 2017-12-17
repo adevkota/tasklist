@@ -1,6 +1,5 @@
 
-<title-card [title]="task.title">
-    
+<title-card [title]="task?.title">/title-card>    
 </title-card>
 <info-card *ngFor="let t of task.tasks; index as i" [info]="t" [index]="i" [listIndex]="task.index"></info-card>
 

@@ -10,15 +10,12 @@ export class TaskListComponent implements OnInit {
 
 	public searchText;
 	@Input() task;
-	constructor(private messageService: MessageService) {
+	constructor(private messageService: MessageService) {}
 
-		}
-
-	ngOnInit() {
-	}
+	ngOnInit() {}
 
 	public addCard() {
 		const result = window.prompt('please enter info');
-		this.task.tasks.push(result);
+		this.messageService.sendMessage('addTask', {listIndex: this.task.index, info: result});
 	}
 }

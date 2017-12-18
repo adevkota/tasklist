@@ -13,19 +13,22 @@ export class AppComponent implements OnInit {
 
 	constructor(private messageService: MessageService) {
 		this.messageService.getMessage().subscribe((message) => {
-			this.taskContainer.map((item) => {
-
-				if (item.index === message.data.listIndex) {
-					// if currindex = tasklist index, remove info from the tasks
-					item.tasks.splice(message.data.index, 1);
-				} else if (item.index === message.data.listIndex - 1 && message.text === 'prev') {
-					// if tasklist index = currindex + 1 and event is next, add it
-					item.tasks.push(message.data.info);
-				} else if (item.index === message.data.listIndex + 1 && message.text === 'next') {
-					// if tasklis index = curr index -1 and event is prev, add
-					item.tasks.push(message.data.info);
-				}
-			});
+			if (message.text === 'next' || message.text === 'prev') {
+				this.taskContainer.map((item) => {
+					if (item.index === message.data.listIndex) {
+						// if currindex = tasklist index, remove info from the tasks
+						item.tasks.splice(message.data.index, 1);
+					} else if (item.index === message.data.listIndex - 1 && message.text === 'prev') {
+						// if tasklist index = currindex + 1 and event is next, add it
+						item.tasks.push(message.data.info);
+					} else if (item.index === message.data.listIndex + 1 && message.text === 'next') {
+						// if tasklis index = curr index -1 and event is prev, add
+						item.tasks.push(message.data.info);
+					}
+				});
+			} else if (message.text === 'addTask') {
+				this.taskContainer[message.data.listIndex].tasks.push(message.data.info);
+			}
 
 		});
 	}

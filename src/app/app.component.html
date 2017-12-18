@@ -1,11 +1,10 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div class="wrapper">
-  <div class="container-fluid">
-
-    <div class="row">
-      <div class="col" *ngFor="let taskList of taskContainer">
-        <app-task-list [task]="taskList"></app-task-list>
-      </div>
-    </div>
-  </div>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col" *ngFor="let taskList of taskContainer">
+				<app-task-list [task]="taskList"></app-task-list>
+			</div>
+		</div>
+	</div>
 </div>

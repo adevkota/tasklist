@@ -17,25 +17,25 @@ import { TitleCardComponent } from './title-card/title-card.component';
 
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    TaskListComponent,
-    TaskComponent,
-    SearchPipe,
-    TextColorDirective,
-    InfoCardComponent,
-    TitleCardComponent,
-  ],
-  imports: [
-    BrowserModule,
-    FormsModule,
-    MatCheckboxModule,
-    MatInputModule,
-    MatFormFieldModule
-  ],
-  providers: [
-    MessageService
-  ],
-  bootstrap: [AppComponent]
+	declarations: [
+		AppComponent,
+		TaskListComponent,
+		TaskComponent,
+		SearchPipe,
+		TextColorDirective,
+		InfoCardComponent,
+		TitleCardComponent,
+	],
+	imports: [
+		BrowserModule,
+		FormsModule,
+		MatCheckboxModule,
+		MatInputModule,
+		MatFormFieldModule
+	],
+	providers: [
+		MessageService
+	],
+	bootstrap: [AppComponent]
 })
 export class AppModule { }

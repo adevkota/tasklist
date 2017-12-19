@@ -1,7 +1,11 @@
 
-<div class="info">
-  <span *ngIf="listIndex>0" (click)="moveToPrev()" class="prev"><</span>
-    {{info}}
-  <span *ngIf="listIndex<3"(click)="moveToNext()" class="next">></span>
+<div class="info-card">
+  <div class="info">{{info}}</div> 
+
+  <div class="control-group">
+    <span [ngClass]="{'disabled': listIndex>0}" (click)="moveToPrev()" class="control"><</span>
+    <span (click) = "deleteCard()" class="control">x</span>
+    <span [ngClass]="{'disabled': listIndex>0}"(click)="moveToNext()" class="control">></span>
+  </div>
 </div>
 

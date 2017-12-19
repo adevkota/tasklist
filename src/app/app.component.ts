@@ -28,33 +28,43 @@ export class AppComponent implements OnInit {
 				});
 			} else if (message.text === 'addTask') {
 				this.taskContainer[message.data.listIndex].tasks.push(message.data.info);
-			}
+			} else if (message.text === 'deleteTask') {
+				this.taskContainer[message.data.listIndex].tasks.splice(message.data.index, 1);
+			};
+
+
+			localStorage.setItem("me.adevkota.taskContainer", JSON.stringify(this.taskContainer));
 
 		});
 	}
 
 	public ngOnInit() {
-		this.taskContainer = [
+		this.taskContainer = JSON.parse(localStorage.getItem("me.adevkota.taskContainer")) || this.getDefaultTaskContainer();
+	}
+
+	public getDefaultTaskContainer(): Array<{}> {
+		return [
 			{
-				title: 'one',
+				title: 'TODO',
 				index: 0,
-				tasks: ['one', 'two']
+				tasks: ["one", "two"]
 			},
 			{
-				title: 'two',
+				title: 'CODING',
 				index: 1,
-				tasks: ['one', 'two']
+				tasks: []
 			},
 			{
 				index: 2,
-				title: 'three',
-				tasks: ['one', 'two']
+				title: 'TESTING',
+				tasks: []
 			},
 			{
 				index: 3,
-				title: 'four',
-				tasks: ['one', 'two']
+				title: 'DONE',
+				tasks: []
 			}
 		];
 	}
+
 }

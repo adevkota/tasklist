@@ -1,5 +1,21 @@
-.info{
+.info-card{
     background-color:white;
-    padding: 14px 12px;
     margin: 5px 0;
+
+    .info{
+        padding: 14px 12px;
+    }
+
+    .control-group{
+        display: flex;
+        .control{
+            display: inline-block;
+            width: 33%;
+            text-align: center;
+            border-top: 1px solid aquamarine; 
+            &:hover{
+                background-color: aquamarine;
+            }
+        }
+    }
 }

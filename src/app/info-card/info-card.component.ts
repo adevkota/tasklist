@@ -24,6 +24,13 @@ export class InfoCardComponent implements OnInit {
 		if(this.listIndex === 0) { return; }
 		this.messageService.sendMessage('prev', {index: this.index, listIndex: this.listIndex, info: this.info});
 	}
+
+	public moveDown() {
+		
+	}
+	public moveUp() {
+
+	}
 	public deleteCard() {
 		this.messageService.sendMessage('deleteTask', {index: this.index, listIndex: this.listIndex});
 	}

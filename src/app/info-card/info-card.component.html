@@ -1,11 +1,20 @@
 
 <div class="info-card">
-  <div class="info">{{info}}</div> 
-
+  <div class="row no-gutters">
+    <div class="col">
+      <div class="info">{{info}}</div>
+    </div>
+    <div class="col-2">
+      <div class="control-group vertical">
+        <span [ngClass]="{'disabled': listIndex===0}" (click)="moveUp()" class="control">^</span>
+        <span [ngClass]="{'disabled': listIndex===3}"(click)="moveDown()" class="control">v</span>
+      </div>
+    </div>
+  </div>
   <div class="control-group">
-    <span [ngClass]="{'disabled': listIndex>0}" (click)="moveToPrev()" class="control"><</span>
+    <span [ngClass]="{'disabled': listIndex===0}" (click)="moveToPrev()" class="control"><</span>
     <span (click) = "deleteCard()" class="control">x</span>
-    <span [ngClass]="{'disabled': listIndex>0}"(click)="moveToNext()" class="control">></span>
+    <span [ngClass]="{'disabled': listIndex===3}"(click)="moveToNext()" class="control">></span>
   </div>
 </div>
 

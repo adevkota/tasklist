@@ -6,15 +6,23 @@
     </div>
     <div class="col-2">
       <div class="control-group vertical">
-        <span [ngClass]="{'disabled': listIndex===0}" (click)="moveUp()" class="control">^</span>
-        <span [ngClass]="{'disabled': listIndex===3}"(click)="moveDown()" class="control">v</span>
+        <span [ngClass]="{'disabled': index===0}" (click)="moveUp()" class="control up"></span>
+        <span [ngClass]="{'disabled': isLast}"(click)="moveDown()" class="control down"></span>
       </div>
     </div>
   </div>
-  <div class="control-group">
-    <span [ngClass]="{'disabled': listIndex===0}" (click)="moveToPrev()" class="control"><</span>
-    <span (click) = "deleteCard()" class="control">x</span>
-    <span [ngClass]="{'disabled': listIndex===3}"(click)="moveToNext()" class="control">></span>
+  <div class="row no-gutters">
+    <div class="col">
+      <div class="control-group">
+        <span [ngClass]="{'disabled': listIndex===0}" (click)="moveToPrev()" class="control left"></span>
+        <span [ngClass]="{'disabled': listIndex===3}"(click)="moveToNext()" class="control right"></span>
+      </div>
+    </div>
+    <div class="col-2">
+      <div class="control-group delete">
+        <span (click) = "deleteCard()" class="control"></span>
+      </div>
+    </div>
   </div>
 </div>
 

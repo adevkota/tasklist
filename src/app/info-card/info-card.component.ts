@@ -11,9 +11,11 @@ export class InfoCardComponent implements OnInit {
 	@Input() info;
 	@Input() listIndex;
 	@Input() index;
+	@Input() isLast;
 	constructor(private messageService: MessageService) { }
 
 	ngOnInit() {
+		console.log(this.isLast);
 	}
 
 	public moveToNext() {
@@ -24,12 +26,14 @@ export class InfoCardComponent implements OnInit {
 		if(this.listIndex === 0) { return; }
 		this.messageService.sendMessage('prev', {index: this.index, listIndex: this.listIndex, info: this.info});
 	}
-
+	
 	public moveDown() {
-		
+		//TODO: return if last item
+		this.messageService.sendMessage('moveDown', {index: this.index, listIndex: this.listIndex, info: this.info});
 	}
 	public moveUp() {
-
+		if(this.index === 0) { return; }
+		this.messageService.sendMessage('moveUp', {index: this.index, listIndex: this.listIndex, info: this.info});
 	}
 	public deleteCard() {
 		this.messageService.sendMessage('deleteTask', {index: this.index, listIndex: this.listIndex});

@@ -26,6 +26,16 @@ export class AppComponent implements OnInit {
 						item.tasks.push(message.data.info);
 					}
 				});
+			} else if(message.text === 'moveUp' || message.text === 'moveDown') {
+				this.taskContainer
+					.map((item) => {
+						if ( item.index === message.data.listIndex) {
+							let newPos = message.text === 'moveUp' ? message.data.index - 1 : message.data.index + 1;
+							item.tasks[message.data.index] = item.tasks[newPos];
+							item.tasks[newPos] = message.data.info;
+						}
+					})
+				
 			} else if (message.text === 'addTask') {
 				this.taskContainer[message.data.listIndex].tasks.push(message.data.info);
 			} else if (message.text === 'deleteTask') {

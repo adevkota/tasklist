@@ -15,7 +15,6 @@ export class InfoCardComponent implements OnInit {
 	constructor(private messageService: MessageService) { }
 
 	ngOnInit() {
-		console.log(this.isLast);
 	}
 
 	public moveToNext() {

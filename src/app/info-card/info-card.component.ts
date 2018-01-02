@@ -18,7 +18,7 @@ export class InfoCardComponent implements OnInit {
 	}
 
 	public moveToNext() {
-		if(this.listIndex === 3){ return;}
+		if(this.listIndex === 3){ return; }
 		this.messageService.sendMessage('next', {index: this.index, listIndex: this.listIndex, info: this.info});
 	}
 	public moveToPrev() {
@@ -27,7 +27,7 @@ export class InfoCardComponent implements OnInit {
 	}
 	
 	public moveDown() {
-		//TODO: return if last item
+		if(this.isLast) { return; }
 		this.messageService.sendMessage('moveDown', {index: this.index, listIndex: this.listIndex, info: this.info});
 	}
 	public moveUp() {
